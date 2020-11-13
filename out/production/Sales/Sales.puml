@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+PictureAdCar *-- Car
+TextAdCar *-- Car
+PictureAdFurniture *-- Furniture
+TextAdFurniture *-- Furniture
+
+class PictureAdCar{
+    - Car car
+    + display(): String
+}
+
+class TextAdCar{
+    - Car car
+    + display(): String
+}
+
+class PictureAdFurniture{
+    - Furniture furniture
+    + display(): String
+}
+
+class TextAdFurniture{
+    - Furniture furniture
+    + display(): String
+}
+
+class Car{
+    - String picUrl
+    - String make
+    - String model
+    - String[] features
+    - int price
+}
+
+class Furniture{
+    - String picUrl
+    - String description
+    - float price
+}
+
+
+
+
+
+@enduml
