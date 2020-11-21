@@ -1,4 +1,4 @@
-public class Car {
+public class Car implements ItemResource{
     private String picUrl;
     private String make;
     private String model;
@@ -31,5 +31,25 @@ public class Car {
 
     public int getPrice() {
         return price;
+    }
+
+    @Override
+    public String providePicture() {
+        return this.getPicUrl();
+    }
+
+    @Override
+    public String provideTitle() {
+        return "Make: " + this.getMake() + "\nModel: " + this.getModel();
+    }
+
+    @Override
+    public String provideDescription() {
+        return "Features: \n" + this.getFeatures();
+    }
+
+    @Override
+    public String providePrice() {
+        return "" + this.getPrice();
     }
 }

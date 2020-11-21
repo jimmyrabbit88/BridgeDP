@@ -1,13 +1,18 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-PictureAdCar *-- Car
-TextAdCar *-- Car
-PictureAdFurniture *-- Furniture
-TextAdFurniture *-- Furniture
+PictureAdCar o-- Car
+TextAdCar o-- Car
+PictureAdFurniture o-- Furniture
+TextAdFurniture o-- Furniture
+
+class DisplayBehaviour{
+    -display()
+}
 
 class PictureAdCar{
     - Car car
+    - DisplayBehavior display behaviour
     + display(): String
 }
 
