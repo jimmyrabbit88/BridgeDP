@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class DriverTest {
     private Car car1 = new Car("www.c1.com", "ford", "mondeo", " ABS,\n Cruse control,\n Central locking\n", 10999);
     private Furniture furniture1 = new Furniture("www.f1.com", "6 foot wooden dining \ntable with mahogany inlay", 27.99f);
+    private Ticket t1 = new Ticket("www.tickets.com", "Westlife", "2", "aviva stadium", "43 each");
     private CarResource cr = new CarResource(car1);
     private FurnitureResource fr = new FurnitureResource(furniture1);
+    private TicketResource tr = new TicketResource(t1);
     @Test
     public void carPictureAd(){
         Advertisment pa = new PictureAd(this.cr);
@@ -58,6 +60,29 @@ class DriverTest {
                 "Price: €27.99\n" +
                 "###################################################";
         assertEquals(expected, taf.display());
+    }
+
+    @Test
+    public void ThumbnailAdFurniture(){
+        //TextAdFurniture taf = new TextAdFurniture(furniture1);
+        Advertisment taf = new ThumbnailAd(this.fr);
+        String expected = ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n" +
+                "www.f1.com\n" +
+                "Price: €27.99\n" +
+                "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+        assertEquals(expected, taf.display());
+    }
+
+    @Test
+    public void TicketPictureAd(){
+        Advertisment pa = new PictureAd(this.cr);
+        pa.setItem(this.tr);
+        assertEquals("***********************************************\n" +
+                "www.tickets.com\n" +
+                "Westlife\n" +
+                "2 tickets for Westlife in aviva stadium\n" +
+                "Price: €43 each\n" +
+                "***********************************************", pa.display());
     }
 
 }

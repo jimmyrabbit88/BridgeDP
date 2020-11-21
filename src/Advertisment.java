@@ -5,5 +5,9 @@ public abstract class Advertisment {
         this.item = item;
     }
 
+    public void setItem(ItemResource item) {
+        this.item = item;
+    }
+
     abstract String display();
 }
