@@ -1,0 +1,52 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Advertisment <|-- PictureAd
+Advertisment <|-- TextAd
+Advertisment o- ItemResource
+ItemResource <|... CarResource
+ItemResource <|... FurnitureResource
+CarResource <|-- Car
+FurnitureResource o-- Furniture
+
+abstract class Advertisment{
+    - ItemResource item
+    + display(): void
+}
+
+class PictureAd{
+    + display(): String
+}
+
+class TextAd{
+    + display(): String
+}
+
+interface ItemResource {
+    + providePicture(): String
+    + provideTitle(): String
+    + provideDescription(): String
+    + providePrice(): String
+}
+
+class CarResource{
+    - Car car
+}
+
+class FurnitureResource{
+    -Furniture furniture
+}
+
+class Car{
+    - String picUrl
+    - String[] features
+    - int price
+}
+
+class Furniture{
+    - String picUrl
+    - String description
+    - float price
+}
+
+@enduml
