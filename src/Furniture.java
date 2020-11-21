@@ -1,4 +1,4 @@
-public class Furniture {
+public class Furniture implements ItemResource{
     private String picUrl;
     private String description;
     private float price;
@@ -19,5 +19,25 @@ public class Furniture {
 
     public float getPrice() {
         return price;
+    }
+
+    @Override
+    public String providePicture() {
+        return this.getPicUrl();
+    }
+
+    @Override
+    public String provideTitle() {
+        return this.getDescription();
+    }
+
+    @Override
+    public String provideDescription() {
+        return "";
+    }
+
+    @Override
+    public String providePrice() {
+        return ""+this.getPrice();
     }
 }

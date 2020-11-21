@@ -7,7 +7,7 @@ class DriverTest {
     private Furniture furniture1 = new Furniture("www.f1.com", "6 foot wooden dining \ntable with mahogany inlay", 27.99f);
     @Test
     public void carPictureAd(){
-        PictureAdCar pac = new PictureAdCar(this.car1);
+        Advertisment pa = new PictureAd(this.car1);
         assertEquals("***********************************************\n" +
                 "www.c1.com\n" +
                 "Make: ford\n" +
@@ -18,25 +18,29 @@ class DriverTest {
                 " Central locking\n" +
                 "\n" +
                 "Price: €10999\n" +
-                "***********************************************", pac.display());
+                "***********************************************", pa.display());
     }
 
     @Test
     public void carTextAd(){
-        TextAdCar tac = new TextAdCar(this.car1);
+        //TextAdCar tac = new TextAdCar(this.car1);
+        Advertisment tac = new TextAd(this.car1);
         assertEquals("###################################################\n" +
-                "Car: ford mondeo\n" +
+                "Make: ford\n" +
+                "Model: mondeo\n" +
                 "Price: €10999\n" +
                 "###################################################", tac.display());
     }
 
     @Test
     public void furniturePictureAd(){
-        PictureAdFurniture paf = new PictureAdFurniture(furniture1);
+        //PictureAdFurniture paf = new PictureAdFurniture(furniture1);
+        Advertisment paf = new PictureAd(this.furniture1);
         String expected = "***********************************************\n" +
                 "www.f1.com\n" +
-                "Discription: 6 foot wooden dining \n" +
+                "6 foot wooden dining \n" +
                 "table with mahogany inlay\n" +
+                "\n" +
                 "Price: €27.99\n" +
                 "***********************************************";
         assertEquals(expected, paf.display());
@@ -44,9 +48,10 @@ class DriverTest {
 
     @Test
     public void furnitureTextAd(){
-        TextAdFurniture taf = new TextAdFurniture(furniture1);
+        //TextAdFurniture taf = new TextAdFurniture(furniture1);
+        Advertisment taf = new TextAd(this.furniture1);
         String expected = "###################################################\n" +
-                "Item: 6 foot wooden dining \n" +
+                "6 foot wooden dining \n" +
                 "table with mahogany inlay\n" +
                 "Price: €27.99\n" +
                 "###################################################";
