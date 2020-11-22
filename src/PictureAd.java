@@ -4,6 +4,8 @@ public class PictureAd extends Advertisment{
         super(item);
     }
 
+
+
     @Override
     String display() {
         String adHtml = "***********************************************\n";

@@ -3,11 +3,14 @@ skinparam classAttributeIconSize 0
 
 Advertisment <|-- PictureAd
 Advertisment <|-- TextAd
+Advertisment <|-- ThumbnailAd
 Advertisment o- ItemResource
 ItemResource <|... CarResource
 ItemResource <|... FurnitureResource
+ItemResource <|... TicketResource
 CarResource o-- Car
 FurnitureResource o-- Furniture
+TicketResource o-- Ticket
 
 abstract class Advertisment{
     - ItemResource item
@@ -19,6 +22,10 @@ class PictureAd{
 }
 
 class TextAd{
+    + display(): String
+}
+
+class ThumbnailAd{
     + display(): String
 }
 
@@ -37,6 +44,10 @@ class FurnitureResource{
     -Furniture furniture
 }
 
+class TicketResource{
+    -Ticket ticket
+}
+
 class Car{
     - String picUrl
     - String[] features
@@ -47,6 +58,14 @@ class Furniture{
     - String picUrl
     - String description
     - float price
+}
+
+class Ticket{
+    - String picUrl
+    - String name
+    - String number
+    - String location
+    - String price
 }
 
 @enduml
